@@ -1,0 +1,219 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n static admin_datta %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <title>Detect Tumor</title>
+    <!-- Add your CSS and Bootstrap CDN links here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            background-image: url("{% static 'assets/images/mri2.jpeg' %}");
+        }
+
+        .container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #FFFFFF ;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Custom styling for form */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .uploaded-image img,
+        .tumor-image img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .image-label {
+            color: #007bff;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .predicted-class {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .tumor-details {
+            margin-top: 20px;
+        }
+
+        .tumor-details label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            color: #4CAF50;
+        }
+
+        .tumor-details p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <h2>Detect Tumor</h2>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="text" name="age" id="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select name="gender" id="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="image-label">Upload Image:</label>
+                            <input type="file" name="image" accept="image/*" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Detect Tumor</button>
+                    </form>
+                </div>
+                {% if last_uploaded_image %}
+
+                <div class="tumor-image">
+                    <label class="segmented-image-label" style="font-size:24px ; color:#435072;"><b><u>Segmented Tumor Image:</b></u></label><br>
+                    <img src="{{ last_uploaded_image.tumor_image.url }}" alt="Tumor Image" width="220" height="220">
+                </div>
+                <br><br>
+                <div class="predicted-class">
+                    <label class="image-label" style="font-size:24px ; color:#435072;"><b><u>Predicted Class:</b></u></label>
+                    <p style="color:#60E1DF;font-size:24px;">{{ last_uploaded_image.predicted_class }}</p>
+                </div>
+                <br><br>
+                <div class="tumor-image">
+                    <label class="segmented-image-label" style="font-size:24px ; color:#435072;"><b><u>Mask Tumor Image:</b></u></label><br>
+                    <img src="{{ last_uploaded_image.masked_image.url }}" alt="Mask Tumor Image" width="220" height="220">
+                </div>
+                <br><br>
+                <div class="tumor-details">
+                    <label class="image-label" style="font-size: 24px; font-weight: bold; color:#435072;"><b><u>Tumor Details:</b></u></label>
+                    <p style="font-size: 20px; color:#60E1DF;font-weight: bold;" >Tumor Area: {{ last_uploaded_image.Area }}</p>
+                    <p style="font-size: 20px; color:#60E1DF;font-weight: bold;">Tumor Volume: {{ last_uploaded_image.Volume }}</p>
+                    <p style="font-size: 20px; color:#60E1DF;font-weight: bold;">Stage of the Tumor: {{ last_uploaded_image.Stage }}</p>
+                </div>
+                <br><br>
+                <button id="download-btn" class="btn btn-primary">Download Report</button>
+                <br><br><br><br>
+                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                <a style="font-size: 20px; font-weight: bold;" href="{% url 'bc_badges' %}">Meningioma tumor</a>&nbsp; &nbsp; &nbsp; &nbsp;
+                <a style="font-size: 20px; font-weight: bold;" href="{% url 'bc_button' %}">Glioma tumor</a>&nbsp; &nbsp; &nbsp; &nbsp;
+                <a style="font-size: 20px; font-weight: bold;" href="{% url 'bc_collapse' %}">Pituitary tumor</a>
+                {% endif %}
+            </div>
+            {% if last_uploaded_image %}
+            <div class="col-md-6">
+                <div class="uploaded-image">
+                    <p style="font-size: 20px; font-weight: bold;">NAME: {{ last_uploaded_image.Name }}</p>
+                    <p style="font-size: 20px; font-weight: bold;">AGE: {{ last_uploaded_image.Age }}</p>
+                    <p style="font-size: 20px; font-weight: bold;">GENDER: {{ last_uploaded_image.Gender }}</p>
+                    <label class="image-label" style="font-size:24px;color:#435072;"><b><u>Uploaded Image:</b></u></label><br>
+                    <img src="{{ last_uploaded_image.image.url }}" alt="Uploaded Image" width="220" height="220">
+                </div>
+                
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        const button = document.getElementById('download-btn');
+    
+        function generatePDF() {
+            // Choose the element that your content will be rendered to.
+            const element = document.getElementById('row');
+            // Set options to capture the entire scrollable area.
+            const options = {
+                margin: 10,
+                filename: 'report.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, scrollX: 0, scrollY: -window.scrollY },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            // Choose the element and save the PDF for your user.
+            html2pdf().from(element).set(options).save();
+        }
+    
+        button.addEventListener('click', generatePDF);
+    </script>
+</body>
+
+</html>
+
+<!-- [ Main Content ] end -->
+
+{% endblock content %}

@@ -1,0 +1,204 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<html>
+<head>
+    <title>Glioma Tumor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        nav {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .symptoms{
+            font-size=20px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            font-size:18px;
+            margin-bottom: 20px;
+        }
+        
+
+        img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fff">Glioma Tumor</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#causes">Causes</a></li>
+            <li><a href="#symptoms">Symptoms</a></li>
+            <li><a href="#Doctor">Doctor</a></li>
+            <li><a href="#treatment">Treatement</a></li>
+            <li><a href="#Risk Factors">Risk Factors</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+            
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+              Glioma is a growth of cells that starts in the brain or spinal cord. The cells in a glioma look similar to healthy brain cells called glial cells. Glial cells surround nerve cells and help them function. As a glioma grows it forms a mass of cells called a tumor. The tumor can grow to press on brain or spinal cord tissue and cause symptoms. Symptoms depend on which part of the brain or spinal cord is affected. There are many types of glioma. Some grow slowly and aren't considered to be cancers. Others are considered cancerous. Another word for cancerous is malignant. Malignant gliomas grow quickly and can invade healthy brain tissue. Some types of glioma happen mostly in adults. Others happen mostly in kids. The type of glioma you have helps your health care team understand how serious your condition is and what treatments might work best. In general, glioma treatment options include surgery, radiation therapy, chemotherapy and others.
+            </p>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="causes">
+          <h2>Causes</h2>
+          <p>
+              Causes for Glioma may include:
+          </p>
+          <ul style="font-size: 18px;">
+              <li>Doctors aren't sure what causes glioma. It starts when cells in the brain or spinal cord develop changes in their DNA. A cell's DNA contains the instructions that tell a cell what to do.</li>
+              <li>The DNA changes tell the cells to make more cells quickly. The cells continue living when healthy cells would die. This causes too many cells that don't work right. The cells form a mass called a tumor.</li>
+              <li>The tumor can grow to press on nearby nerves and parts of the brain or spinal cord. This leads to glioma symptoms and can cause complications.</li>
+              <li>Some gliomas develop more changes in their DNA that cause them to become brain cancers. The changes tell the cells to invade and destroy healthy brain tissue.</li>
+              <li>In glioma, the tumor cells look similar to healthy brain cells called glial cells. The glial cells surround and support nerve cells in the brain and spinal cord.</li>
+              <!-- Add more treatment options here -->
+          </ul>
+          <!-- Add more content and images here -->
+      </section>
+
+        <section id="symptoms">
+            <h2>Symptoms</h2>
+            <p>
+              Glioma symptoms depend on the location of the glioma. Symptoms also may depend on the type of glioma, its size and how quickly it's growing.
+              <br>
+              Common signs and symptoms of gliomas include:
+            </p>
+            <ul style="font-size: 18px;">
+                <li>Headache, particularly one that hurts the most in the morning.</li>
+                <li>Nausea and vomiting.</li>
+                <li>Confusion or a decline in brain function, such as problems with thinking and understanding information.</li>
+                <li>Memory loss</li>
+                <li>Personality changes or irritability.</li>
+                <li>Vision problems, such as blurred vision, double vision or loss of peripheral vision.</li>
+                <li>Speech difficulties.</li>
+                <li>Seizures, especially in someone who hasn't had seizures before.</li>
+                <!-- Add more symptoms here -->
+            </ul>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="Doctor">
+            <h2>When to see a doctor</h2>
+            <p>
+              Make an appointment with your health care provider if you have any signs and symptoms that worry you.
+                <br>
+                Seek emergency care if you have:
+            </p>    
+                <ul style="font-size: 18px;">
+                   <li>Sudden onset of seizures</li>
+                   <li>Sudden changes in vision or memory</li>
+                </ul> 
+            <p>       
+            Make an appointment to see your health care provider if you have persistent signs and symptoms that concern you, such as headaches that worsen over time.
+            In many cases, because meningiomas do not cause any noticeable signs or symptoms, they are only discovered as a result of imaging scans done for reasons that turn out to be unrelated to the tumor, such as a head injury, stroke or headaches.
+            </p>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="treatment">
+            <h2>Treatment</h2>
+            <p>
+                Treatment for Glioma may include:
+            </p>
+            <ul style="font-size: 18px;">
+                <li>Surgery to remove the tumor</li>
+                <li>Radiation therapy</li>
+                <li>Chemotherapy</li>
+                <!-- Add more treatment options here -->
+            </ul>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="Risk Factors">
+            <h2>Risk Factor</h2>
+            <p>
+                Risk factors for a meningioma include:
+            </p>
+            <ul style="font-size: 18px;">
+                <li>Getting older. Gliomas are most common in adults between ages 45 and 65 years old. But glioma can happen at any age. Certain types of gliomas are more common in children and young adults.</li>
+                <li>Being exposed to radiation. People who have been exposed to a type of radiation called ionizing radiation have an increased risk of glioma. One example of ionizing radiation is radiation therapy used to treat cancer.</li>
+                <li>Having a family history of glioma. Glioma can run in families, but this is very rare. More research is needed to understand whether parents can pass a risk of glioma to their children.</li>
+    
+              <!-- Add more treatment options here -->
+            </ul>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="prevention">
+            <h2>Prevention</h2>
+            <p>
+                There are no known ways to prevent the development of meningioma tumors. Regular medical check-ups and early detection are essential for timely treatment.
+            </p>
+            <!-- Add more content and images here -->
+        </section>
+    </div>
+</body>
+</html>
+
+  <!-- [ Main Content ] end -->
+
+{% endblock content %}

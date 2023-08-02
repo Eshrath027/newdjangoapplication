@@ -1,0 +1,185 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<html>
+<head>
+    <title>Meningioma Tumor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        nav {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .symptoms{
+            font-size=20px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            font-size:18px;
+            margin-bottom: 20px;
+        }
+        
+
+        img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fff">Meningioma Tumor</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#symptoms">Symptoms</a></li>
+            <li><a href="#Doctor">Doctor</a></li>
+            <li><a href="#treatment">Treatement</a></li>
+            <li><a href="#Risk Factors">Risk Factors</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+            
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                A meningioma is a tumor that arises from the meninges — the membranes that surround the brain and spinal cord. Although not technically a brain tumor, it is included in this category because it may compress or squeeze the adjacent brain, nerves and vessels. Meningioma is the most common type of tumor that forms in the head. Most meningiomas grow very slowly, often over many years without causing symptoms. But sometimes, their effects on nearby brain tissue, nerves or vessels may cause serious disability. Meningiomas occur more commonly in women and are often discovered at older ages, but they may occur at any age. Because most meningiomas grow slowly, often without any significant signs and symptoms, they do not always require immediate treatment and may be monitored over time.
+            </p>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="symptoms">
+            <h2>Symptoms</h2>
+            <p>
+                Signs and symptoms of a meningioma typically begin gradually and may be very subtle at first. Depending on where in the brain or, rarely, spine the tumor is situated, signs and symptoms may include:
+            </p>
+            <ul style="font-size: 18px;">
+                <li>Changes in vision, such as seeing double or blurriness</li>
+                <li>Headaches, especially those that are worse in the morning</li>
+                <li>Hearing loss or ringing in the ears</li>
+                <li>Memory loss</li>
+                <li>Loss of smell</li>
+                <li>Seizures</li>
+                <li>Weakness in your arms or legs</li>
+                <li>Language difficulty</li>
+                <!-- Add more symptoms here -->
+            </ul>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="Doctor">
+            <h2>When to see a doctor</h2>
+            <p>
+                Most signs and symptoms of a meningioma evolve slowly, but sometimes a meningioma requires emergency care.
+                <br>
+                Seek emergency care if you have:
+            </p>    
+                <ul style="font-size: 18px;">
+                   <li>Sudden onset of seizures</li>
+                   <li>Sudden changes in vision or memory</li>
+                </ul> 
+            <p>       
+            Make an appointment to see your health care provider if you have persistent signs and symptoms that concern you, such as headaches that worsen over time.
+            In many cases, because meningiomas do not cause any noticeable signs or symptoms, they are only discovered as a result of imaging scans done for reasons that turn out to be unrelated to the tumor, such as a head injury, stroke or headaches.
+            </p>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="treatment">
+            <h2>Treatment</h2>
+            <p>
+                Treatment for meningioma may include:
+            </p>
+            <ul style="font-size: 18px;">
+                <li>Surgery to remove the tumor</li>
+                <li>Radiation therapy</li>
+                <li>Chemotherapy</li>
+                <!-- Add more treatment options here -->
+            </ul>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="Risk Factors">
+            <h2>Risk Factor</h2>
+            <p>
+                Risk factors for a meningioma include:
+            </p>
+            <ul style="font-size: 18px;">
+                <li>Radiation treatment. Radiation therapy that involves radiation to the head may increase the risk of a meningioma.</li>
+                <li>Female hormones. Meningiomas are more common in women, leading doctors to believe that female hormones may play a role. Some studies have also suggested a link between breast cancer and meningioma risk related to the role of hormones. Some research suggests that the use of oral birth control and hormone replacement therapy could raise the risk of meningioma growth.</li>
+                <li>An inherited nervous system disorder. The rare disorder neurofibromatosis 2 increases the risk of meningioma and other brain tumors.</li>
+                <li>Obesity. A high body mass index (BMI) is an established risk factor for many types of cancers, and a higher prevalence of meningiomas among obese people has been observed in several large studies. But the relationship between obesity and meningiomas is not clear.</li>
+                <!-- Add more treatment options here -->
+            </ul>
+            <!-- Add more content and images here -->
+        </section>
+
+        <section id="prevention">
+            <h2>Prevention</h2>
+            <p>
+                There are no known ways to prevent the development of meningioma tumors. Regular medical check-ups and early detection are essential for timely treatment.
+            </p>
+            <!-- Add more content and images here -->
+        </section>
+    </div>
+</body>
+</html>
+
+  <!-- [ Main Content ] end -->
+
+{% endblock content %}
