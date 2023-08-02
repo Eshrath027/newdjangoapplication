@@ -10,3 +10,10 @@ django-admin-datta==1.0.10
 # Tooling
 django-dynamic-datatb==1.0.25
 django-api-generator==1.0.17
+
+tensorflow
+boto3
+h5py
+Ipython
+ultralytics
+s3fs
